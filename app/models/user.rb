@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 	validates :username, uniqueness:true, presence: true
 	validates :email, uniqueness: true, presence: true, format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z/ }
 
+	has_many :ribbits
+
 	
 	private
 	def prep_email
