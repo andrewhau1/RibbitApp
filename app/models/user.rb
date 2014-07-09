@@ -10,7 +10,16 @@ class User < ActiveRecord::Base
 	validates :email, uniqueness: true, presence: true, format: { with: /\A[\w.+-]+@([\w]+.)+\w+\z/ }
 
 	has_many :ribbits
+	has_many :follower_relationships, classname: "Relationship", foreign_key: "followed_id"
+	has_many :followed_relationships, classname: "Relationship", foreign_key: "follower_id"
 
+	def following? user
+		self.followeds.include? user
+	end
+
+	def follow user
+		Relationship.create follower_id: self.id, followed_id: user_id
+	end
 	
 	private
 	def prep_email

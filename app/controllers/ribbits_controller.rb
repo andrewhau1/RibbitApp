@@ -16,8 +16,8 @@ class RibbitsController < ApplicationController
 		end
 	end
 
-	private
-  	def ribbit_params
-    	params.require(:ribbit).permit(:content, :user_id)
-  	end
+	# private
+ #  	def ribbit_params
+ #    	params.require(:ribbit).permit(:content, :user_id)
+ #  	end
 end
