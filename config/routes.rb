@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  post 'sessions/new'
+
+  post 'sessions/create'
+
+  post 'sessions/destroy'
+
   resources :users
 
   root to: 'users#new'
