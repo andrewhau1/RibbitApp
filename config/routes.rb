@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
   resources :relationships
-
   resources :ribbits
-
   resources :users
   
   root to: 'users#new'
@@ -11,7 +9,7 @@ Rails.application.routes.draw do
   post 'sessions/create'
   get 'sessions/destroy'
 
-  
+  get 'buddies', to: 'users#buddies', as: 'buddies'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
