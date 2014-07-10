@@ -15,6 +15,6 @@ class RelationshipsController < ApplicationController
 	def destroy
 		@relationship = Relationship.find(params[:id])
 		@relationship.destroy
-		redirect_to user_path params[:id]
+		redirect_to user_path params(@relationship.followed_id)
 	end
 end

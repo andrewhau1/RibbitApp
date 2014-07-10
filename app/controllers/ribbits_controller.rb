@@ -5,7 +5,7 @@ class RibbitsController < ApplicationController
 	end
 
 	def create
-		@ribbit = Ribbit.new(params[:ribbit])
+		@ribbit = Ribbit.new(ribbit_params)
 		@ribbit.userid = current_user.id
 
 		if @ribbit.save
@@ -16,8 +16,8 @@ class RibbitsController < ApplicationController
 		end
 	end
 
-	# private
- #  	def ribbit_params
- #    	params.require(:ribbit).permit(:content, :user_id)
- #  	end
+	private
+  	def ribbit_params
+    	params.require(:ribbit).permit(:content, :user_id)
+  	end
 end
